@@ -1,96 +1,156 @@
 /* styles.css */
 
+/* Reset and general styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Dark text color */
 }
 
+/* Header styles */
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
+    background-color: #343a40; /* Dark background for header */
+    color: white; /* White text color */
+    padding: 1rem 0; /* Padding top and bottom */
     text-align: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
 }
 
 header .logo h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 1.8rem; /* Larger font size for logo */
 }
 
-header .logo p {
+header p {
     margin: 0;
-    font-size: 1.2em;
-    font-style: italic;
-}
-
-nav {
-    margin-top: 10px;
+    font-size: 1.2rem; /* Smaller font size for tagline */
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin-right: 1rem; /* Space between navigation items */
 }
 
 nav ul li a {
-    color: white;
+    color: white; /* White text color */
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.1rem; /* Font size for navigation links */
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Main content styles */
+main {
+    padding: 20px; /* Padding around main content */
 }
 
 section {
-    padding: 20px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem; /* Space between sections */
+    padding: 2rem; /* Padding inside sections */
+    background-color: #ffffff; /* White background for sections */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
-#home {
-    text-align: center;
+section h2 {
+    font-size: 2rem; /* Larger font size for section headings */
+    margin-bottom: 1rem; /* Space below section headings */
 }
 
+/* Categories section styles */
 #categories .category-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around; /* Space evenly between category links */
+    margin-bottom: 1rem; /* Space below category links */
 }
 
-#categories .category-list div {
-    background-color: #e0e0e0;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    width: 45%;
-    text-align: center;
+#categories .category-list a {
+    padding: 0.5rem 1rem; /* Padding inside category links */
+    border: 1px solid #007bff; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    color: #007bff; /* Blue text color */
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
+#categories .category-list a:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white; /* White text color on hover */
+}
+
+/* Contact form styles */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; /* Max width for form */
+    margin: 0 auto; /* Center form horizontally */
+}
+
+#contactForm label {
+    margin-bottom: 0.5rem; /* Space below form labels */
+}
+
+#contactForm input[type="email"] {
+    padding: 0.5rem; /* Padding inside email input */
+    margin-bottom: 1rem; /* Space below email input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+#contactForm button {
+    padding: 0.5rem 1rem; /* Padding inside button */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+#contactForm button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer styles */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    background-color: #343a40; /* Dark background for footer */
+    color: white; /* White text color */
+    text-align: center; /* Center align text */
+    padding: 1rem 0; /* Padding top and bottom */
+    position: fixed; /* Fixed position */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
 }
 
 footer p {
-    margin: 0;
+    margin: 0; /* No margin */
+}
+
+/* Responsive styles (optional, adjust as needed) */
+@media (max-width: 768px) {
+    header .logo h1 {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+
+    header p {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    nav ul li {
+        margin-right: 0.5rem; /* Adjust margin for smaller screens */
+    }
+
+    section {
+        padding: 1.5rem; /* Adjust padding for smaller screens */
+    }
 }

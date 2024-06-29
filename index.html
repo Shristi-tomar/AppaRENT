@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AppaRENT - Wear More, Spend Less</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles can go here if needed */
+    </style>
 </head>
 <body>
     <header>
@@ -23,36 +26,114 @@
         </nav>
     </header>
 
-    <section id="home">
-        <h2>Welcome to AppaRENT</h2>
-        <p>Your one-stop solution for renting clothes and accessories. Find the perfect outfit for any occasion without breaking the bank!</p>
-    </section>
+    <main>
+        <section id="home">
+            <h2>Welcome to AppaRENT</h2>
+            <p>Your one-stop solution for renting clothes and accessories. Find the perfect outfit for any occasion without breaking the bank!</p>
+        </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>AppaRENT is dedicated to helping you look your best for every event, from college proms to office parties, without the need to buy new clothes. We connect you with nearby customers who have just what you need.</p>
-    </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>AppaRENT is dedicated to helping you look your best for every event, from college proms to office parties, without the need to buy new clothes. We connect you with nearby customers who have just what you need.</p>
+        </section>
 
-    <section id="categories">
-        <h2>Categories</h2>
-        <div class="category-list">
-            <!-- Categories will be dynamically loaded here -->
-        </div>
-    </section>
+        <section id="categories">
+            <h2>Categories</h2>
+            <div class="category-list">
+                <a href="#" data-category="all">All Categories</a>
+                <a href="#" data-category="casual-wear">Casual Wear</a>
+                <a href="#" data-category="formal-wear">Formal Wear</a>
+                <a href="#" data-category="party-wear">Party Wear</a>
+                <a href="#" data-category="accessories">Accessories</a>
+            </div>
+            <div class="items-to-filter">
+                <!-- Replace with actual items to filter dynamically -->
+                <div class="item-to-filter casual-wear">Item 1 - Casual Wear</div>
+                <div class="item-to-filter formal-wear">Item 2 - Formal Wear</div>
+                <div class="item-to-filter party-wear">Item 3 - Party Wear</div>
+                <div class="item-to-filter accessories">Item 4 - Accessories</div>
+            </div>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or need support, feel free to reach out to us at <a href="mailto:support@apparent.com">support@apparent.com</a>.</p>
-    </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
 
-    <section id="account">
-        <h2>Your Account</h2>
-        <p>Log in to manage your rentals and listings.</p>
-        <!-- Account management features will be added here -->
-    </section>
+        <section id="account">
+            <h2>Your Account</h2>
+            <p>Log in to manage your rentals and listings.</p>
+            <!-- Account management features will be added here -->
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 AppaRENT. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic category filtering
+        const categoryLinks = document.querySelectorAll('#categories .category-list a');
+        const itemsToFilter = document.querySelectorAll('.item-to-filter');
+
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const selectedCategory = this.getAttribute('data-category');
+                
+                itemsToFilter.forEach(item => {
+                    if (selectedCategory === 'all' || item.classList.contains(selectedCategory)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form validation for the contact form
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const emailInput = document.getElementById('email');
+            const emailValue = emailInput.value.trim();
+
+            if (!isValidEmail(emailValue)) {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+                return;
+            }
+
+            // Simulate form submission (replace with actual submission code)
+            alert('Form submitted successfully!');
+
+            // Reset form after submission (optional)
+            this.reset();
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
 </body>
 </html>
